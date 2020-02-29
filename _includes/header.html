@@ -14,13 +14,8 @@
 		</h1>
 		<nav class="site-nav">
 			<ul>
-				{% if site.theme_settings.site_navigation_sort %}
-				{% assign site_pages = site.pages | sort: site.theme_settings.site_navigation_sort %}
-				{% else %}
-				{% assign site_pages = site.pages %}
-				{% endif %}
-				{% for page in site_pages %}
-				{% if page.title and page.hide != true %}
+				{% for page in site.pages %}
+				{% if (page.title == 'About' or page.title =='tags') and page.hide != true %}
 				<li>
 					<a class="page-link" href="{{ page.url | relative_url }}">
 						{{ page.title }}
@@ -28,8 +23,6 @@
 				</li>
 				{% endif %}
 				{% endfor %}
-				<!-- Social icons from Font Awesome, if enabled  -->
-				{% include icons.html %}
 
 				<!-- Search bar -->
 				{% if site.theme_settings.search %}
@@ -45,19 +38,31 @@
 			</ul>
 		</nav>
 	</div>
-	<header class="site-category">
-		<ul>
 
-			{% assign pages_list = site.pages %}
-			{% for node in pages_list %}
-			{% if node.title != null %}
-			{% if node.layout == "category" %}
-			<li><a class="category-link {% if page.url == node.url %} active{% endif %}"
-				   href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a></li>
-			{% endif %}
-			{% endif %}
-			{% endfor %}
+	<div class="site-category">
+		<ul class='cat1'>
+			<li><a href="/">Home</a></li>
+
+			<li><a href="/">Life</a>
+				<ul>
+					<li><a href="/Life/Life">Life</a></li>
+					<li><a href="/Life/Review">Review</a></li>
+				</ul>
+			</li>
+
+			<li><a href="/">Programming</a>
+				<ul>
+					<li><a href="/Programming/Java">Java</a></li>
+				</ul>
+			</li>
+
+			<li><a href="/">Algorithm</a>
+				<ul>
+					<li><a href="/Algorithm/Programmers">Programmers</a></li>
+				</ul>
+			</li>
 
 		</ul>
-	</header>
+	</div>
+
 </header>
