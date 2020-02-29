@@ -1,4 +1,5 @@
 ---
 layout: category
-title: test
+title: Programming/Java
+permalink: '/Programming/Java'
 ---
