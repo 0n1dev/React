@@ -1,5 +1,5 @@
 ---
 layout: category
-title: Programming/Java
+title: Programming/Java!
 permalink: '/Programming/Java'
 ---
